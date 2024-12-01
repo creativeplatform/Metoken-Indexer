@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio-indexer
+networks:
+- id: 8453
+  start_block: 0
+  contracts:
+  - name: DiamondMetoken
+    address:
+    - 0xba5502db2aC2cBff189965e991C07109B14eB3f5
+    handler: src/EventHandlers.ts
+    events:
+    - event: Burn(address meToken, address asset, address burner, address recipient, uint256 meTokensBurned, uint256 assetsReturned)
+    - event: CancelResubscribe(address indexed meToken)
+    - event: CancelTransferMeTokenOwnership(address from, address meToken)
+    - event: CancelUpdate(uint256 id)
+    - event: ClaimMeTokenOwnership(address from, address to, address meToken)
+    - event: Deactivate(uint256 id)
+    - event: Donate(address meToken, address asset, address donor, uint256 assetsDeposited)
+    - event: FinishResubscribe(address indexed meToken)
+    - event: FinishUpdate(uint256 id)
+    - event: InitResubscribe(address indexed meToken, uint256 targetHubId, address migration, bytes encodedMigrationArgs)
+    - event: InitUpdate(uint256 id, uint256 targetRefundRatio, uint32 targetReserveWeight, bool reconfigure, uint256 startTime, uint256 endTime, uint256 endCooldown)
+    - event: Mint(address meToken, address asset, address depositor, address recipient, uint256 assetsDeposited, uint256 meTokensMinted)
+    - event: Register(uint256 id, address owner, address asset, address vault, uint256 refundRatio, uint256 baseY, uint32 reserveWeight, bytes encodedVaultArgs)
+    - event: SetBurnBuyerFee(uint256 rate)
+    - event: SetBurnOwnerFee(uint256 rate)
+    - event: SetMintFee(uint256 rate)
+    - event: Subscribe(address indexed meToken, address indexed owner, uint256 minted, address asset, uint256 assetsDeposited, string name, string symbol, uint256 hubId)
+    - event: TransferHubOwnership(uint256 id, address newOwner)
+    - event: TransferMeTokenOwnership(address from, address to, address meToken)
+    - event: UpdateBalanceLocked(bool add, address meToken, uint256 amount)
+    - event: UpdateBalancePooled(bool add, address meToken, uint256 amount)
+    - event: UpdateBalances(address meToken, uint256 newBalance)
+rollback_on_reorg: false

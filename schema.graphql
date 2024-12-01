@@ -1,0 +1,157 @@
+type DiamondMetoken_Burn {
+  id: ID!
+  meToken: String!
+  asset: String!
+  burner: String!
+  recipient: String!
+  meTokensBurned: BigInt!
+  assetsReturned: BigInt!
+}
+
+type DiamondMetoken_CancelResubscribe {
+  id: ID!
+  meToken: String!
+}
+
+type DiamondMetoken_CancelTransferMeTokenOwnership {
+  id: ID!
+  from: String!
+  meToken: String!
+}
+
+type DiamondMetoken_CancelUpdate {
+  id: ID!
+  event_id: BigInt!
+}
+
+type DiamondMetoken_ClaimMeTokenOwnership {
+  id: ID!
+  from: String!
+  to: String!
+  meToken: String!
+}
+
+type DiamondMetoken_Deactivate {
+  id: ID!
+  event_id: BigInt!
+}
+
+type DiamondMetoken_Donate {
+  id: ID!
+  meToken: String!
+  asset: String!
+  donor: String!
+  assetsDeposited: BigInt!
+}
+
+type DiamondMetoken_FinishResubscribe {
+  id: ID!
+  meToken: String!
+}
+
+type DiamondMetoken_FinishUpdate {
+  id: ID!
+  event_id: BigInt!
+}
+
+type DiamondMetoken_InitResubscribe {
+  id: ID!
+  meToken: String!
+  targetHubId: BigInt!
+  migration: String!
+  encodedMigrationArgs: String!
+}
+
+type DiamondMetoken_InitUpdate {
+  id: ID!
+  event_id: BigInt!
+  targetRefundRatio: BigInt!
+  targetReserveWeight: BigInt!
+  reconfigure: Boolean!
+  startTime: BigInt!
+  endTime: BigInt!
+  endCooldown: BigInt!
+}
+
+type DiamondMetoken_Mint {
+  id: ID!
+  meToken: String!
+  asset: String!
+  depositor: String!
+  recipient: String!
+  assetsDeposited: BigInt!
+  meTokensMinted: BigInt!
+}
+
+type DiamondMetoken_Register {
+  id: ID!
+  event_id: BigInt!
+  owner: String!
+  asset: String!
+  vault: String!
+  refundRatio: BigInt!
+  baseY: BigInt!
+  reserveWeight: BigInt!
+  encodedVaultArgs: String!
+}
+
+type DiamondMetoken_SetBurnBuyerFee {
+  id: ID!
+  rate: BigInt!
+}
+
+type DiamondMetoken_SetBurnOwnerFee {
+  id: ID!
+  rate: BigInt!
+}
+
+type DiamondMetoken_SetMintFee {
+  id: ID!
+  rate: BigInt!
+}
+
+type DiamondMetoken_Subscribe {
+  id: ID!
+  meToken: String!
+  owner: String!
+  minted: BigInt!
+  asset: String!
+  assetsDeposited: BigInt!
+  name: String!
+  symbol: String!
+  hubId: BigInt!
+}
+
+type DiamondMetoken_TransferHubOwnership {
+  id: ID!
+  event_id: BigInt!
+  newOwner: String!
+}
+
+type DiamondMetoken_TransferMeTokenOwnership {
+  id: ID!
+  from: String!
+  to: String!
+  meToken: String!
+}
+
+type DiamondMetoken_UpdateBalanceLocked {
+  id: ID!
+  add: Boolean!
+  meToken: String!
+  amount: BigInt!
+}
+
+type DiamondMetoken_UpdateBalancePooled {
+  id: ID!
+  add: Boolean!
+  meToken: String!
+  amount: BigInt!
+}
+
+type DiamondMetoken_UpdateBalances {
+  id: ID!
+  meToken: String!
+  newBalance: BigInt!
+}
+
