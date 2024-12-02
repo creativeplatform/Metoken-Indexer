@@ -1,40 +1,37 @@
 import assert from "assert";
 import { 
   TestHelpers,
-  DiamondMetoken_Burn
+  Metoken_Transfer
 } from "generated";
-const { MockDb, DiamondMetoken } = TestHelpers;
+const { MockDb, Metoken } = TestHelpers;
 
-describe("DiamondMetoken contract Burn event tests", () => {
+describe("Metoken contract Transfer event tests", () => {
   // Create mock db
   const mockDb = MockDb.createMockDb();
 
-  // Creating mock for DiamondMetoken contract Burn event
-  const event = DiamondMetoken.Burn.createMockEvent({/* It mocks event fields with default values. You can overwrite them if you need */});
+  // Creating mock for Metoken contract Transfer event
+  const event = Metoken.Transfer.createMockEvent({/* It mocks event fields with default values. You can overwrite them if you need */});
 
-  it("DiamondMetoken_Burn is created correctly", async () => {
+  it("Metoken_Transfer is created correctly", async () => {
     // Processing the event
-    const mockDbUpdated = await DiamondMetoken.Burn.processEvent({
+    const mockDbUpdated = await Metoken.Transfer.processEvent({
       event,
       mockDb,
     });
 
     // Getting the actual entity from the mock database
-    let actualDiamondMetokenBurn = mockDbUpdated.entities.DiamondMetoken_Burn.get(
+    let actualMetokenTransfer = mockDbUpdated.entities.Metoken_Transfer.get(
       `${event.chainId}_${event.block.number}_${event.logIndex}`
     );
 
     // Creating the expected entity
-    const expectedDiamondMetokenBurn: DiamondMetoken_Burn = {
+    const expectedMetokenTransfer: Metoken_Transfer = {
       id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-      meToken: event.params.meToken,
-      asset: event.params.asset,
-      burner: event.params.burner,
-      recipient: event.params.recipient,
-      meTokensBurned: event.params.meTokensBurned,
-      assetsReturned: event.params.assetsReturned,
+      from: event.params.from,
+      to: event.params.to,
+      value: event.params.value,
     };
     // Asserting that the entity in the mock database is the same as the expected entity
-    assert.deepEqual(actualDiamondMetokenBurn, expectedDiamondMetokenBurn, "Actual DiamondMetokenBurn should be the same as the expectedDiamondMetokenBurn");
+    assert.deepEqual(actualMetokenTransfer, expectedMetokenTransfer, "Actual MetokenTransfer should be the same as the expectedMetokenTransfer");
   });
 });

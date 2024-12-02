@@ -1,4 +1,11 @@
-type DiamondMetoken_Burn {
+type Metoken_Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  value: BigInt!
+}
+
+type Metokens_Burn {
   id: ID!
   meToken: String!
   asset: String!
@@ -8,35 +15,35 @@ type DiamondMetoken_Burn {
   assetsReturned: BigInt!
 }
 
-type DiamondMetoken_CancelResubscribe {
+type Metokens_CancelResubscribe {
   id: ID!
   meToken: String!
 }
 
-type DiamondMetoken_CancelTransferMeTokenOwnership {
+type Metokens_CancelTransferMeTokenOwnership {
   id: ID!
   from: String!
   meToken: String!
 }
 
-type DiamondMetoken_CancelUpdate {
+type Metokens_CancelUpdate {
   id: ID!
   event_id: BigInt!
 }
 
-type DiamondMetoken_ClaimMeTokenOwnership {
+type Metokens_ClaimMeTokenOwnership {
   id: ID!
   from: String!
   to: String!
   meToken: String!
 }
 
-type DiamondMetoken_Deactivate {
+type Metokens_Deactivate {
   id: ID!
   event_id: BigInt!
 }
 
-type DiamondMetoken_Donate {
+type Metokens_Donate {
   id: ID!
   meToken: String!
   asset: String!
@@ -44,17 +51,17 @@ type DiamondMetoken_Donate {
   assetsDeposited: BigInt!
 }
 
-type DiamondMetoken_FinishResubscribe {
+type Metokens_FinishResubscribe {
   id: ID!
   meToken: String!
 }
 
-type DiamondMetoken_FinishUpdate {
+type Metokens_FinishUpdate {
   id: ID!
   event_id: BigInt!
 }
 
-type DiamondMetoken_InitResubscribe {
+type Metokens_InitResubscribe {
   id: ID!
   meToken: String!
   targetHubId: BigInt!
@@ -62,7 +69,7 @@ type DiamondMetoken_InitResubscribe {
   encodedMigrationArgs: String!
 }
 
-type DiamondMetoken_InitUpdate {
+type Metokens_InitUpdate {
   id: ID!
   event_id: BigInt!
   targetRefundRatio: BigInt!
@@ -73,7 +80,7 @@ type DiamondMetoken_InitUpdate {
   endCooldown: BigInt!
 }
 
-type DiamondMetoken_Mint {
+type Metokens_Mint {
   id: ID!
   meToken: String!
   asset: String!
@@ -83,7 +90,7 @@ type DiamondMetoken_Mint {
   meTokensMinted: BigInt!
 }
 
-type DiamondMetoken_Register {
+type Metokens_Register {
   id: ID!
   event_id: BigInt!
   owner: String!
@@ -95,22 +102,22 @@ type DiamondMetoken_Register {
   encodedVaultArgs: String!
 }
 
-type DiamondMetoken_SetBurnBuyerFee {
+type Metokens_SetBurnBuyerFee {
   id: ID!
   rate: BigInt!
 }
 
-type DiamondMetoken_SetBurnOwnerFee {
+type Metokens_SetBurnOwnerFee {
   id: ID!
   rate: BigInt!
 }
 
-type DiamondMetoken_SetMintFee {
+type Metokens_SetMintFee {
   id: ID!
   rate: BigInt!
 }
 
-type DiamondMetoken_Subscribe {
+type Metokens_Subscribe {
   id: ID!
   meToken: String!
   owner: String!
@@ -122,34 +129,34 @@ type DiamondMetoken_Subscribe {
   hubId: BigInt!
 }
 
-type DiamondMetoken_TransferHubOwnership {
+type Metokens_TransferHubOwnership {
   id: ID!
   event_id: BigInt!
   newOwner: String!
 }
 
-type DiamondMetoken_TransferMeTokenOwnership {
+type Metokens_TransferMeTokenOwnership {
   id: ID!
   from: String!
   to: String!
   meToken: String!
 }
 
-type DiamondMetoken_UpdateBalanceLocked {
+type Metokens_UpdateBalanceLocked {
   id: ID!
   add: Boolean!
   meToken: String!
   amount: BigInt!
 }
 
-type DiamondMetoken_UpdateBalancePooled {
+type Metokens_UpdateBalancePooled {
   id: ID!
   add: Boolean!
   meToken: String!
   amount: BigInt!
 }
 
-type DiamondMetoken_UpdateBalances {
+type Metokens_UpdateBalances {
   id: ID!
   meToken: String!
   newBalance: BigInt!
