@@ -223,7 +223,7 @@ MetokenRegistryFacet.FinishResubscribe.handler(async ({ event, context }) => {
 MetokenRegistryFacet.InitResubscribe.handler(async ({ event, context }) => {
   const entity: MetokenRegistryFacet_InitResubscribe = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    meToken: event.params.meToken,
+    metoken: event.params.metoken,
     targetHubId: event.params.targetHubId,
     migration: event.params.migration,
     encodedMigrationArgs: event.params.encodedMigrationArgs
