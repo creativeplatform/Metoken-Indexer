@@ -1,4 +1,11 @@
-type FoundryFacet_Burn {
+type Metoken_Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  value: BigInt!
+}
+
+type Metokens_Burn {
   id: ID!
   meToken: String!
   asset: String!
@@ -8,33 +15,35 @@ type FoundryFacet_Burn {
   assetsReturned: BigInt!
 }
 
-type MeTokenRegistryFacet_CancelResubscribe {
+type Metokens_CancelResubscribe {
   id: ID!
   meToken: String!
 }
 
-type MeTokenRegistryFacet_CancelTransferMeTokenOwnership {
+type Metokens_CancelTransferMeTokenOwnership {
   id: ID!
   from: String!
   meToken: String!
 }
 
-type HubFacet_CancelUpdate {
+type Metokens_CancelUpdate {
   id: ID!
+  event_id: BigInt!
 }
 
-type MeTokenRegistryFacet_ClaimMeTokenOwnership {
+type Metokens_ClaimMeTokenOwnership {
   id: ID!
   from: String!
   to: String!
   meToken: String!
 }
 
-type HubFacet_Deactivate {
+type Metokens_Deactivate {
   id: ID!
+  event_id: BigInt!
 }
 
-type FoundryFacet_Donate {
+type Metokens_Donate {
   id: ID!
   meToken: String!
   asset: String!
@@ -42,16 +51,17 @@ type FoundryFacet_Donate {
   assetsDeposited: BigInt!
 }
 
-type MeTokenRegistryFacet_FinishResubscribe {
+type Metokens_FinishResubscribe {
   id: ID!
   meToken: String!
 }
 
-type HubFacet_FinishUpdate {
+type Metokens_FinishUpdate {
   id: ID!
+  event_id: BigInt!
 }
 
-type MeTokenRegistryFacet_InitResubscribe {
+type Metokens_InitResubscribe {
   id: ID!
   meToken: String!
   targetHubId: BigInt!
@@ -59,7 +69,7 @@ type MeTokenRegistryFacet_InitResubscribe {
   encodedMigrationArgs: String!
 }
 
-type HubFacet_InitUpdate {
+type Metokens_InitUpdate {
   id: ID!
   event_id: BigInt!
   targetRefundRatio: BigInt!
@@ -70,7 +80,7 @@ type HubFacet_InitUpdate {
   endCooldown: BigInt!
 }
 
-type FoundryFacet_Mint {
+type Metokens_Mint {
   id: ID!
   meToken: String!
   asset: String!
@@ -80,7 +90,7 @@ type FoundryFacet_Mint {
   meTokensMinted: BigInt!
 }
 
-type HubFacet_Register {
+type Metokens_Register {
   id: ID!
   event_id: BigInt!
   owner: String!
@@ -92,22 +102,22 @@ type HubFacet_Register {
   encodedVaultArgs: String!
 }
 
-type FeesFacet_SetBurnBuyerFee {
+type Metokens_SetBurnBuyerFee {
   id: ID!
   rate: BigInt!
 }
 
-type FeesFacet_SetBurnOwnerFee {
+type Metokens_SetBurnOwnerFee {
   id: ID!
   rate: BigInt!
 }
 
-type FeesFacet_SetMintFee {
+type Metokens_SetMintFee {
   id: ID!
   rate: BigInt!
 }
 
-type MeTokenRegistryFacet_Subscribe {
+type Metokens_Subscribe {
   id: ID!
   meToken: String!
   owner: String!
@@ -119,28 +129,36 @@ type MeTokenRegistryFacet_Subscribe {
   hubId: BigInt!
 }
 
-type HubFacet_TransferHubOwnership {
+type Metokens_TransferHubOwnership {
   id: ID!
   event_id: BigInt!
   newOwner: String!
 }
 
-type MeTokenRegistryFacet_TransferMeTokenOwnership {
+type Metokens_TransferMeTokenOwnership {
   id: ID!
   from: String!
   to: String!
   meToken: String!
 }
 
-type MeTokenRegistryFacet_UpdateBalanceLocked {
+type Metokens_UpdateBalanceLocked {
   id: ID!
   add: Boolean!
   meToken: String!
   amount: BigInt!
 }
 
-type MeTokenRegistryFacet_UpdateBalances {
+type Metokens_UpdateBalancePooled {
+  id: ID!
+  add: Boolean!
+  meToken: String!
+  amount: BigInt!
+}
+
+type Metokens_UpdateBalances {
   id: ID!
   meToken: String!
   newBalance: BigInt!
 }
+

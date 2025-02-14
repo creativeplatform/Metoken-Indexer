@@ -2,60 +2,150 @@
  * Please refer to https://docs.envio.dev for a thorough guide on all Envio indexer features
  */
 import {
-  HubFacet,
-  FoundryFacet,
-  FeesFacet,
-  MeTokenRegistryFacet,
-  HubFacet_CancelUpdate,
-  HubFacet_Deactivate,
-  HubFacet_FinishUpdate,
-  HubFacet_InitUpdate,
-  HubFacet_Register,
-  HubFacet_TransferHubOwnership,
-  FoundryFacet_Burn,
-  FoundryFacet_Donate,
-  FoundryFacet_Mint,
-  FeesFacet_SetBurnBuyerFee,
-  FeesFacet_SetBurnOwnerFee,
-  FeesFacet_SetMintFee,
-  MeTokenRegistryFacet_CancelResubscribe,
-  MeTokenRegistryFacet_CancelTransferMeTokenOwnership,
-  MeTokenRegistryFacet_ClaimMeTokenOwnership,
-  MeTokenRegistryFacet_FinishResubscribe,
-  MeTokenRegistryFacet_InitResubscribe,
-  MeTokenRegistryFacet_Subscribe,
-  MeTokenRegistryFacet_TransferMeTokenOwnership,
-  MeTokenRegistryFacet_UpdateBalanceLocked,
-  MeTokenRegistryFacet_UpdateBalances,
+  Metoken,
+  Metoken_Transfer,
+  Metokens,
+  Metokens_Burn,
+  Metokens_CancelResubscribe,
+  Metokens_CancelTransferMeTokenOwnership,
+  Metokens_CancelUpdate,
+  Metokens_ClaimMeTokenOwnership,
+  Metokens_Deactivate,
+  Metokens_Donate,
+  Metokens_FinishResubscribe,
+  Metokens_FinishUpdate,
+  Metokens_InitResubscribe,
+  Metokens_InitUpdate,
+  Metokens_Mint,
+  Metokens_Register,
+  Metokens_SetBurnBuyerFee,
+  Metokens_SetBurnOwnerFee,
+  Metokens_SetMintFee,
+  Metokens_Subscribe,
+  Metokens_TransferHubOwnership,
+  Metokens_TransferMeTokenOwnership,
+  Metokens_UpdateBalanceLocked,
+  Metokens_UpdateBalancePooled,
+  Metokens_UpdateBalances,
 } from "generated";
 
-// HubFacet Handlers
-HubFacet.CancelUpdate.handler(async ({ event, context }) => {
-  const entity: HubFacet_CancelUpdate = {
+Metoken.Transfer.handler(async ({ event, context }) => {
+  const entity: Metoken_Transfer = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    from: event.params.from,
+    to: event.params.to,
+    value: event.params.value,
   };
 
-  context.HubFacet_CancelUpdate.set(entity);
+  context.Metoken_Transfer.set(entity);
 });
 
-HubFacet.Deactivate.handler(async ({ event, context }) => {
-  const entity: HubFacet_Deactivate = {
+Metokens.Burn.handler(async ({ event, context }) => {
+  const entity: Metokens_Burn = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    meToken: event.params.meToken,
+    asset: event.params.asset,
+    burner: event.params.burner,
+    recipient: event.params.recipient,
+    meTokensBurned: event.params.meTokensBurned,
+    assetsReturned: event.params.assetsReturned,
   };
 
-  context.HubFacet_Deactivate.set(entity);
+  context.Metokens_Burn.set(entity);
 });
 
-HubFacet.FinishUpdate.handler(async ({ event, context }) => {
-  const entity: HubFacet_FinishUpdate = {
+Metokens.CancelResubscribe.handler(async ({ event, context }) => {
+  const entity: Metokens_CancelResubscribe = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    meToken: event.params.meToken,
   };
 
-  context.HubFacet_FinishUpdate.set(entity);
+  context.Metokens_CancelResubscribe.set(entity);
 });
 
-HubFacet.InitUpdate.handler(async ({ event, context }) => {
-  const entity: HubFacet_InitUpdate = {
+Metokens.CancelTransferMeTokenOwnership.handler(async ({ event, context }) => {
+  const entity: Metokens_CancelTransferMeTokenOwnership = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    from: event.params.from,
+    meToken: event.params.meToken,
+  };
+
+  context.Metokens_CancelTransferMeTokenOwnership.set(entity);
+});
+
+Metokens.CancelUpdate.handler(async ({ event, context }) => {
+  const entity: Metokens_CancelUpdate = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    event_id: event.params.id,
+  };
+
+  context.Metokens_CancelUpdate.set(entity);
+});
+
+Metokens.ClaimMeTokenOwnership.handler(async ({ event, context }) => {
+  const entity: Metokens_ClaimMeTokenOwnership = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    from: event.params.from,
+    to: event.params.to,
+    meToken: event.params.meToken,
+  };
+
+  context.Metokens_ClaimMeTokenOwnership.set(entity);
+});
+
+Metokens.Deactivate.handler(async ({ event, context }) => {
+  const entity: Metokens_Deactivate = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    event_id: event.params.id,
+  };
+
+  context.Metokens_Deactivate.set(entity);
+});
+
+Metokens.Donate.handler(async ({ event, context }) => {
+  const entity: Metokens_Donate = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    meToken: event.params.meToken,
+    asset: event.params.asset,
+    donor: event.params.donor,
+    assetsDeposited: event.params.assetsDeposited,
+  };
+
+  context.Metokens_Donate.set(entity);
+});
+
+Metokens.FinishResubscribe.handler(async ({ event, context }) => {
+  const entity: Metokens_FinishResubscribe = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    meToken: event.params.meToken,
+  };
+
+  context.Metokens_FinishResubscribe.set(entity);
+});
+
+Metokens.FinishUpdate.handler(async ({ event, context }) => {
+  const entity: Metokens_FinishUpdate = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    event_id: event.params.id,
+  };
+
+  context.Metokens_FinishUpdate.set(entity);
+});
+
+Metokens.InitResubscribe.handler(async ({ event, context }) => {
+  const entity: Metokens_InitResubscribe = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    meToken: event.params.meToken,
+    targetHubId: event.params.targetHubId,
+    migration: event.params.migration,
+    encodedMigrationArgs: event.params.encodedMigrationArgs,
+  };
+
+  context.Metokens_InitResubscribe.set(entity);
+});
+
+Metokens.InitUpdate.handler(async ({ event, context }) => {
+  const entity: Metokens_InitUpdate = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     event_id: event.params.id,
     targetRefundRatio: event.params.targetRefundRatio,
@@ -66,11 +156,25 @@ HubFacet.InitUpdate.handler(async ({ event, context }) => {
     endCooldown: event.params.endCooldown,
   };
 
-  context.HubFacet_InitUpdate.set(entity);
+  context.Metokens_InitUpdate.set(entity);
 });
 
-HubFacet.Register.handler(async ({ event, context }) => {
-  const entity: HubFacet_Register = {
+Metokens.Mint.handler(async ({ event, context }) => {
+  const entity: Metokens_Mint = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    meToken: event.params.meToken,
+    asset: event.params.asset,
+    depositor: event.params.depositor,
+    recipient: event.params.recipient,
+    assetsDeposited: event.params.assetsDeposited,
+    meTokensMinted: event.params.meTokensMinted,
+  };
+
+  context.Metokens_Mint.set(entity);
+});
+
+Metokens.Register.handler(async ({ event, context }) => {
+  const entity: Metokens_Register = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     event_id: event.params.id,
     owner: event.params.owner,
@@ -82,91 +186,38 @@ HubFacet.Register.handler(async ({ event, context }) => {
     encodedVaultArgs: event.params.encodedVaultArgs,
   };
 
-  context.HubFacet_Register.set(entity);
+  context.Metokens_Register.set(entity);
 });
 
-HubFacet.TransferHubOwnership.handler(async ({ event, context }) => {
-  const entity: HubFacet_TransferHubOwnership = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    event_id: event.params.id,
-    newOwner: event.params.newOwner,
-  };
-
-  context.HubFacet_TransferHubOwnership.set(entity);
-});
-
-// FoundryFacet Handlers
-FoundryFacet.Burn.handler(async ({ event, context }) => {
-  const entity: FoundryFacet_Burn = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    meToken: event.params.meToken,
-    asset: event.params.asset,
-    burner: event.params.burner,
-    recipient: event.params.recipient,
-    meTokensBurned: event.params.meTokensBurned,
-    assetsReturned: event.params.assetsReturned,
-  };
-
-  context.FoundryFacet_Burn.set(entity);
-});
-
-FoundryFacet.Donate.handler(async ({ event, context }) => {
-  const entity: FoundryFacet_Donate = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    meToken: event.params.meToken,
-    asset: event.params.asset,
-    donor: event.params.donor,
-    assetsDeposited: event.params.assetsDeposited,
-  };
-
-  context.FoundryFacet_Donate.set(entity);
-});
-
-FoundryFacet.Mint.handler(async ({ event, context }) => {
-  const entity: FoundryFacet_Mint = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    meToken: event.params.meToken,
-    asset: event.params.asset,
-    depositor: event.params.depositor,
-    recipient: event.params.recipient,
-    assetsDeposited: event.params.assetsDeposited,
-    meTokensMinted: event.params.meTokensMinted,
-  };
-
-  context.FoundryFacet_Mint.set(entity);
-});
-
-// FeesFacet Handlers
-FeesFacet.SetBurnBuyerFee.handler(async ({ event, context }) => {
-  const entity: FeesFacet_SetBurnBuyerFee = {
+Metokens.SetBurnBuyerFee.handler(async ({ event, context }) => {
+  const entity: Metokens_SetBurnBuyerFee = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     rate: event.params.rate,
   };
 
-  context.FeesFacet_SetBurnBuyerFee.set(entity);
+  context.Metokens_SetBurnBuyerFee.set(entity);
 });
 
-FeesFacet.SetBurnOwnerFee.handler(async ({ event, context }) => {
-  const entity: FeesFacet_SetBurnOwnerFee = {
+Metokens.SetBurnOwnerFee.handler(async ({ event, context }) => {
+  const entity: Metokens_SetBurnOwnerFee = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     rate: event.params.rate,
   };
 
-  context.FeesFacet_SetBurnOwnerFee.set(entity);
+  context.Metokens_SetBurnOwnerFee.set(entity);
 });
 
-FeesFacet.SetMintFee.handler(async ({ event, context }) => {
-  const entity: FeesFacet_SetMintFee = {
+Metokens.SetMintFee.handler(async ({ event, context }) => {
+  const entity: Metokens_SetMintFee = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     rate: event.params.rate,
   };
 
-  context.FeesFacet_SetMintFee.set(entity);
+  context.Metokens_SetMintFee.set(entity);
 });
 
-// MeTokenRegistryFacet Handlers
-MeTokenRegistryFacet.Subscribe.handler(async ({ event, context }) => {
-  const entity: MeTokenRegistryFacet_Subscribe = {
+Metokens.Subscribe.handler(async ({ event, context }) => {
+  const entity: Metokens_Subscribe = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     meToken: event.params.meToken,
     owner: event.params.owner,
@@ -178,94 +229,58 @@ MeTokenRegistryFacet.Subscribe.handler(async ({ event, context }) => {
     hubId: event.params.hubId,
   };
 
-  context.MeTokenRegistryFacet_Subscribe.set(entity);
+  context.Metokens_Subscribe.set(entity);
 });
 
-MeTokenRegistryFacet.CancelResubscribe.handler(async ({ event, context }) => {
-  const entity: MeTokenRegistryFacet_CancelResubscribe = {
+Metokens.TransferHubOwnership.handler(async ({ event, context }) => {
+  const entity: Metokens_TransferHubOwnership = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    event_id: event.params.id,
+    newOwner: event.params.newOwner,
+  };
+
+  context.Metokens_TransferHubOwnership.set(entity);
+});
+
+Metokens.TransferMeTokenOwnership.handler(async ({ event, context }) => {
+  const entity: Metokens_TransferMeTokenOwnership = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    from: event.params.from,
+    to: event.params.to,
     meToken: event.params.meToken,
   };
 
-  context.MeTokenRegistryFacet_CancelResubscribe.set(entity);
+  context.Metokens_TransferMeTokenOwnership.set(entity);
 });
 
-MeTokenRegistryFacet.CancelTransferMeTokenOwnership.handler(
-  async ({ event, context }) => {
-    const entity: MeTokenRegistryFacet_CancelTransferMeTokenOwnership = {
-      id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-      from: event.params.from,
-      meToken: event.params.meToken,
-    };
-
-    context.MeTokenRegistryFacet_CancelTransferMeTokenOwnership.set(entity);
-  }
-);
-
-MeTokenRegistryFacet.ClaimMeTokenOwnership.handler(
-  async ({ event, context }) => {
-    const entity: MeTokenRegistryFacet_ClaimMeTokenOwnership = {
-      id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-      from: event.params.from,
-      to: event.params.to,
-      meToken: event.params.meToken,
-    };
-
-    context.MeTokenRegistryFacet_ClaimMeTokenOwnership.set(entity);
-  }
-);
-
-MeTokenRegistryFacet.FinishResubscribe.handler(async ({ event, context }) => {
-  const entity: MeTokenRegistryFacet_FinishResubscribe = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    meToken: event.params.meToken,
-  };
-
-  context.MeTokenRegistryFacet_FinishResubscribe.set(entity);
-});
-
-MeTokenRegistryFacet.InitResubscribe.handler(async ({ event, context }) => {
-  const entity: MeTokenRegistryFacet_InitResubscribe = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    metoken: event.params.metoken,
-    targetHubId: event.params.targetHubId,
-    migration: event.params.migration,
-    encodedMigrationArgs: event.params.encodedMigrationArgs,
-  };
-
-  context.MeTokenRegistryFacet_InitResubscribe.set(entity);
-});
-
-MeTokenRegistryFacet.TransferMeTokenOwnership.handler(
-  async ({ event, context }) => {
-    const entity: MeTokenRegistryFacet_TransferMeTokenOwnership = {
-      id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-      from: event.params.from,
-      to: event.params.to,
-      meToken: event.params.meToken,
-    };
-
-    context.MeTokenRegistryFacet_TransferMeTokenOwnership.set(entity);
-  }
-);
-
-MeTokenRegistryFacet.UpdateBalanceLocked.handler(async ({ event, context }) => {
-  const entity: MeTokenRegistryFacet_UpdateBalanceLocked = {
+Metokens.UpdateBalanceLocked.handler(async ({ event, context }) => {
+  const entity: Metokens_UpdateBalanceLocked = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     add: event.params.add,
     meToken: event.params.meToken,
     amount: event.params.amount,
   };
 
-  context.MeTokenRegistryFacet_UpdateBalanceLocked.set(entity);
+  context.Metokens_UpdateBalanceLocked.set(entity);
 });
 
-MeTokenRegistryFacet.UpdateBalances.handler(async ({ event, context }) => {
-  const entity: MeTokenRegistryFacet_UpdateBalances = {
+Metokens.UpdateBalancePooled.handler(async ({ event, context }) => {
+  const entity: Metokens_UpdateBalancePooled = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    add: event.params.add,
+    meToken: event.params.meToken,
+    amount: event.params.amount,
+  };
+
+  context.Metokens_UpdateBalancePooled.set(entity);
+});
+
+Metokens.UpdateBalances.handler(async ({ event, context }) => {
+  const entity: Metokens_UpdateBalances = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     meToken: event.params.meToken,
     newBalance: event.params.newBalance,
   };
 
-  context.MeTokenRegistryFacet_UpdateBalances.set(entity);
+  context.Metokens_UpdateBalances.set(entity);
 });
