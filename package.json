@@ -22,9 +22,15 @@
     "mocha": "10.2.0"
   },
   "dependencies": {
-    "envio": "2.12.4"
+    "envio": "2.12.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "optionalDependencies": {
     "generated": "./generated"
+  },
+  "resolutions": {
+    "react-reconciler": "0.29.0",
+    "react": "18.3.1"
   }
 }
