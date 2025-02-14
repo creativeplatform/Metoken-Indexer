@@ -1,6 +1,6 @@
 {
-  "name": "envio-indexer",
-  "version": "0.1.1",
+  "name": "metokens-indexer",
+  "version": "0.1.2",
   "scripts": {
     "clean": "tsc --clean",
     "build": "tsc --build",
@@ -22,7 +22,7 @@
     "mocha": "10.2.0"
   },
   "dependencies": {
-    "envio": "2.9.1"
+    "envio": "^2.12.4"
   },
   "optionalDependencies": {
     "generated": "./generated"
