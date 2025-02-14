@@ -5,7 +5,7 @@ import {
   HubFacet,
   FoundryFacet,
   FeesFacet,
-  MetokenRegistryFacet,
+  MeTokenRegistryFacet,
   HubFacet_CancelUpdate,
   HubFacet_Deactivate,
   HubFacet_FinishUpdate,
@@ -18,21 +18,21 @@ import {
   FeesFacet_SetBurnBuyerFee,
   FeesFacet_SetBurnOwnerFee,
   FeesFacet_SetMintFee,
-  MetokenRegistryFacet_CancelResubscribe,
-  MetokenRegistryFacet_CancelTransferMeTokenOwnership,
-  MetokenRegistryFacet_ClaimMeTokenOwnership,
-  MetokenRegistryFacet_FinishResubscribe,
-  MetokenRegistryFacet_InitResubscribe,
-  MetokenRegistryFacet_Subscribe,
-  MetokenRegistryFacet_TransferMeTokenOwnership,
-  MetokenRegistryFacet_UpdateBalanceLocked,
-  MetokenRegistryFacet_UpdateBalances
+  MeTokenRegistryFacet_CancelResubscribe,
+  MeTokenRegistryFacet_CancelTransferMeTokenOwnership,
+  MeTokenRegistryFacet_ClaimMeTokenOwnership,
+  MeTokenRegistryFacet_FinishResubscribe,
+  MeTokenRegistryFacet_InitResubscribe,
+  MeTokenRegistryFacet_Subscribe,
+  MeTokenRegistryFacet_TransferMeTokenOwnership,
+  MeTokenRegistryFacet_UpdateBalanceLocked,
+  MeTokenRegistryFacet_UpdateBalances,
 } from "generated";
 
 // HubFacet Handlers
 HubFacet.CancelUpdate.handler(async ({ event, context }) => {
   const entity: HubFacet_CancelUpdate = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
   };
 
   context.HubFacet_CancelUpdate.set(entity);
@@ -40,7 +40,7 @@ HubFacet.CancelUpdate.handler(async ({ event, context }) => {
 
 HubFacet.Deactivate.handler(async ({ event, context }) => {
   const entity: HubFacet_Deactivate = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
   };
 
   context.HubFacet_Deactivate.set(entity);
@@ -48,7 +48,7 @@ HubFacet.Deactivate.handler(async ({ event, context }) => {
 
 HubFacet.FinishUpdate.handler(async ({ event, context }) => {
   const entity: HubFacet_FinishUpdate = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
   };
 
   context.HubFacet_FinishUpdate.set(entity);
@@ -63,7 +63,7 @@ HubFacet.InitUpdate.handler(async ({ event, context }) => {
     reconfigure: event.params.reconfigure,
     startTime: event.params.startTime,
     endTime: event.params.endTime,
-    endCooldown: event.params.endCooldown
+    endCooldown: event.params.endCooldown,
   };
 
   context.HubFacet_InitUpdate.set(entity);
@@ -79,7 +79,7 @@ HubFacet.Register.handler(async ({ event, context }) => {
     refundRatio: event.params.refundRatio,
     baseY: event.params.baseY,
     reserveWeight: event.params.reserveWeight,
-    encodedVaultArgs: event.params.encodedVaultArgs
+    encodedVaultArgs: event.params.encodedVaultArgs,
   };
 
   context.HubFacet_Register.set(entity);
@@ -89,7 +89,7 @@ HubFacet.TransferHubOwnership.handler(async ({ event, context }) => {
   const entity: HubFacet_TransferHubOwnership = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     event_id: event.params.id,
-    newOwner: event.params.newOwner
+    newOwner: event.params.newOwner,
   };
 
   context.HubFacet_TransferHubOwnership.set(entity);
@@ -104,7 +104,7 @@ FoundryFacet.Burn.handler(async ({ event, context }) => {
     burner: event.params.burner,
     recipient: event.params.recipient,
     meTokensBurned: event.params.meTokensBurned,
-    assetsReturned: event.params.assetsReturned
+    assetsReturned: event.params.assetsReturned,
   };
 
   context.FoundryFacet_Burn.set(entity);
@@ -116,7 +116,7 @@ FoundryFacet.Donate.handler(async ({ event, context }) => {
     meToken: event.params.meToken,
     asset: event.params.asset,
     donor: event.params.donor,
-    assetsDeposited: event.params.assetsDeposited
+    assetsDeposited: event.params.assetsDeposited,
   };
 
   context.FoundryFacet_Donate.set(entity);
@@ -130,7 +130,7 @@ FoundryFacet.Mint.handler(async ({ event, context }) => {
     depositor: event.params.depositor,
     recipient: event.params.recipient,
     assetsDeposited: event.params.assetsDeposited,
-    meTokensMinted: event.params.meTokensMinted
+    meTokensMinted: event.params.meTokensMinted,
   };
 
   context.FoundryFacet_Mint.set(entity);
@@ -140,7 +140,7 @@ FoundryFacet.Mint.handler(async ({ event, context }) => {
 FeesFacet.SetBurnBuyerFee.handler(async ({ event, context }) => {
   const entity: FeesFacet_SetBurnBuyerFee = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    rate: event.params.rate
+    rate: event.params.rate,
   };
 
   context.FeesFacet_SetBurnBuyerFee.set(entity);
@@ -149,7 +149,7 @@ FeesFacet.SetBurnBuyerFee.handler(async ({ event, context }) => {
 FeesFacet.SetBurnOwnerFee.handler(async ({ event, context }) => {
   const entity: FeesFacet_SetBurnOwnerFee = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    rate: event.params.rate
+    rate: event.params.rate,
   };
 
   context.FeesFacet_SetBurnOwnerFee.set(entity);
@@ -158,15 +158,15 @@ FeesFacet.SetBurnOwnerFee.handler(async ({ event, context }) => {
 FeesFacet.SetMintFee.handler(async ({ event, context }) => {
   const entity: FeesFacet_SetMintFee = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    rate: event.params.rate
+    rate: event.params.rate,
   };
 
   context.FeesFacet_SetMintFee.set(entity);
 });
 
-// MetokenRegistryFacet Handlers
-MetokenRegistryFacet.Subscribe.handler(async ({ event, context }) => {
-  const entity: MetokenRegistryFacet_Subscribe = {
+// MeTokenRegistryFacet Handlers
+MeTokenRegistryFacet.Subscribe.handler(async ({ event, context }) => {
+  const entity: MeTokenRegistryFacet_Subscribe = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     meToken: event.params.meToken,
     owner: event.params.owner,
@@ -175,91 +175,97 @@ MetokenRegistryFacet.Subscribe.handler(async ({ event, context }) => {
     assetsDeposited: event.params.assetsDeposited,
     name: event.params.name,
     symbol: event.params.symbol,
-    hubId: event.params.hubId
+    hubId: event.params.hubId,
   };
 
-  context.MetokenRegistryFacet_Subscribe.set(entity);
+  context.MeTokenRegistryFacet_Subscribe.set(entity);
 });
 
-MetokenRegistryFacet.CancelResubcribe.handler(async ({ event, context }) => {
-  const entity: MetokenRegistryFacet_CancelResubscribe = {
+MeTokenRegistryFacet.CancelResubscribe.handler(async ({ event, context }) => {
+  const entity: MeTokenRegistryFacet_CancelResubscribe = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    meToken: event.params.meToken
+    meToken: event.params.meToken,
   };
 
-  context.MetokenRegistryFacet_CancelResubscribe.set(entity);
+  context.MeTokenRegistryFacet_CancelResubscribe.set(entity);
 });
 
-MetokenRegistryFacet.CancelTransferMeTokenOwnership.handler(async ({ event, context }) => {
-  const entity: MetokenRegistryFacet_CancelTransferMeTokenOwnership = {
+MeTokenRegistryFacet.CancelTransferMeTokenOwnership.handler(
+  async ({ event, context }) => {
+    const entity: MeTokenRegistryFacet_CancelTransferMeTokenOwnership = {
+      id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+      from: event.params.from,
+      meToken: event.params.meToken,
+    };
+
+    context.MeTokenRegistryFacet_CancelTransferMeTokenOwnership.set(entity);
+  }
+);
+
+MeTokenRegistryFacet.ClaimMeTokenOwnership.handler(
+  async ({ event, context }) => {
+    const entity: MeTokenRegistryFacet_ClaimMeTokenOwnership = {
+      id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+      from: event.params.from,
+      to: event.params.to,
+      meToken: event.params.meToken,
+    };
+
+    context.MeTokenRegistryFacet_ClaimMeTokenOwnership.set(entity);
+  }
+);
+
+MeTokenRegistryFacet.FinishResubscribe.handler(async ({ event, context }) => {
+  const entity: MeTokenRegistryFacet_FinishResubscribe = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    from: event.params.from,
-    meToken: event.params.meToken
+    meToken: event.params.meToken,
   };
 
-  context.MetokenRegistryFacet_CancelTransferMeTokenOwnership.set(entity);
+  context.MeTokenRegistryFacet_FinishResubscribe.set(entity);
 });
 
-MetokenRegistryFacet.ClaimMetokenOwnership.handler(async ({ event, context }) => {
-  const entity: MetokenRegistryFacet_ClaimMeTokenOwnership = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    from: event.params.from,
-    to: event.params.to,
-    meToken: event.params.meToken
-  };
-
-  context.MetokenRegistryFacet_ClaimMeTokenOwnership.set(entity);
-});
-
-MetokenRegistryFacet.FinishResubscribe.handler(async ({ event, context }) => {
-  const entity: MetokenRegistryFacet_FinishResubscribe = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    meToken: event.params.meToken
-  };
-
-  context.MetokenRegistryFacet_FinishResubscribe.set(entity);
-});
-
-MetokenRegistryFacet.InitResubscribe.handler(async ({ event, context }) => {
-  const entity: MetokenRegistryFacet_InitResubscribe = {
+MeTokenRegistryFacet.InitResubscribe.handler(async ({ event, context }) => {
+  const entity: MeTokenRegistryFacet_InitResubscribe = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     metoken: event.params.metoken,
     targetHubId: event.params.targetHubId,
     migration: event.params.migration,
-    encodedMigrationArgs: event.params.encodedMigrationArgs
+    encodedMigrationArgs: event.params.encodedMigrationArgs,
   };
 
-  context.MetokenRegistryFacet_InitResubscribe.set(entity);
+  context.MeTokenRegistryFacet_InitResubscribe.set(entity);
 });
 
-MetokenRegistryFacet.TransferMeTokenOwnership.handler(async ({ event, context }) => {
-  const entity: MetokenRegistryFacet_TransferMeTokenOwnership = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    from: event.params.from,
-    to: event.params.to,
-    meToken: event.params.meToken
-  };
+MeTokenRegistryFacet.TransferMeTokenOwnership.handler(
+  async ({ event, context }) => {
+    const entity: MeTokenRegistryFacet_TransferMeTokenOwnership = {
+      id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+      from: event.params.from,
+      to: event.params.to,
+      meToken: event.params.meToken,
+    };
 
-  context.MetokenRegistryFacet_TransferMeTokenOwnership.set(entity);
-});
+    context.MeTokenRegistryFacet_TransferMeTokenOwnership.set(entity);
+  }
+);
 
-MetokenRegistryFacet.UpdateBalanceLocked.handler(async ({ event, context }) => {
-  const entity: MetokenRegistryFacet_UpdateBalanceLocked = {
+MeTokenRegistryFacet.UpdateBalanceLocked.handler(async ({ event, context }) => {
+  const entity: MeTokenRegistryFacet_UpdateBalanceLocked = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     add: event.params.add,
     meToken: event.params.meToken,
-    amount: event.params.amount
+    amount: event.params.amount,
   };
 
-  context.MetokenRegistryFacet_UpdateBalanceLocked.set(entity);
+  context.MeTokenRegistryFacet_UpdateBalanceLocked.set(entity);
 });
 
-MetokenRegistryFacet.UpdateBalances.handler(async ({ event, context }) => {
-  const entity: MetokenRegistryFacet_UpdateBalances = {
+MeTokenRegistryFacet.UpdateBalances.handler(async ({ event, context }) => {
+  const entity: MeTokenRegistryFacet_UpdateBalances = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     meToken: event.params.meToken,
-    newBalance: event.params.newBalance
+    newBalance: event.params.newBalance,
   };
 
-  context.MetokenRegistryFacet_UpdateBalances.set(entity);
+  context.MeTokenRegistryFacet_UpdateBalances.set(entity);
 });

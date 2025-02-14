@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
 name: metoken-indexer
 description: Indexer for Metokens
+ecosystem: "evm"
 contracts:
   - name: HubFacet
     abi_file_path: ./HubFacet.json
@@ -26,8 +27,8 @@ contracts:
       - event: SetBurnBuyerFee(uint256 rate)
       - event: SetBurnOwnerFee(uint256 rate)
       - event: SetMintFee(uint256 rate)
-  - name: MetokenRegistryFacet
-    abi_file_path: ./MetokenRegistryFacet.json
+  - name: MeTokenRegistryFacet
+    abi_file_path: ./MeTokenRegistryFacet.json
     handler: src/EventHandlers.ts
     events:
       - event: Subscribe(address meToken, address owner, uint256 minted, address asset, uint256 assetsDeposited, string name, string symbol, uint256 hubId )
@@ -36,7 +37,7 @@ contracts:
       - event: UpdateBalances(address meToken, uint256 newBalance)
       - event: CancelResubcribe(address meToken)
       - event: CancelTransferMeTokenOwnership(address from, address meToken)
-      - event: ClaimMetokenOwnership(address from, address to, address meToken)
+      - event: ClaimMeTokenOwnership(address from, address to, address meToken)
       - event: FinishResubscribe(address meToken)
       - event: InitResubscribe(address metoken, uint256 targetHubId, address migration, bytes encodedMigrationArgs)
 networks:
@@ -52,7 +53,7 @@ networks:
       - name: FeesFacet
         address:
           - 0x4431a3AEb5610FB7082d4Cb0D6b100C288C443b8
-      - name: MetokenRegistryFacet
+      - name: MeTokenRegistryFacet
         address:
           - 0xCb44364CCdb30fc79e7852e778bEc20033a69b8B
   - id: 10
@@ -67,6 +68,6 @@ networks:
       - name: FeesFacet
         address:
           - 0x4B9dAed6cCC04beafA956c1Bd3e3FDCb37009937
-      - name: MetokenRegistryFacet
+      - name: MeTokenRegistryFacet
         address:
           - 0x235b18CC4C44925D05c37AE3005aAAf51FEE3A7B

@@ -8,12 +8,12 @@ type FoundryFacet_Burn {
   assetsReturned: BigInt!
 }
 
-type MetokenRegistryFacet_CancelResubscribe {
+type MeTokenRegistryFacet_CancelResubscribe {
   id: ID!
   meToken: String!
 }
 
-type MetokenRegistryFacet_CancelTransferMeTokenOwnership {
+type MeTokenRegistryFacet_CancelTransferMeTokenOwnership {
   id: ID!
   from: String!
   meToken: String!
@@ -23,7 +23,7 @@ type HubFacet_CancelUpdate {
   id: ID!
 }
 
-type MetokenRegistryFacet_ClaimMeTokenOwnership {
+type MeTokenRegistryFacet_ClaimMeTokenOwnership {
   id: ID!
   from: String!
   to: String!
@@ -42,7 +42,7 @@ type FoundryFacet_Donate {
   assetsDeposited: BigInt!
 }
 
-type MetokenRegistryFacet_FinishResubscribe {
+type MeTokenRegistryFacet_FinishResubscribe {
   id: ID!
   meToken: String!
 }
@@ -51,7 +51,7 @@ type HubFacet_FinishUpdate {
   id: ID!
 }
 
-type MetokenRegistryFacet_InitResubscribe {
+type MeTokenRegistryFacet_InitResubscribe {
   id: ID!
   meToken: String!
   targetHubId: BigInt!
@@ -107,7 +107,7 @@ type FeesFacet_SetMintFee {
   rate: BigInt!
 }
 
-type MetokenRegistryFacet_Subscribe {
+type MeTokenRegistryFacet_Subscribe {
   id: ID!
   meToken: String!
   owner: String!
@@ -125,21 +125,21 @@ type HubFacet_TransferHubOwnership {
   newOwner: String!
 }
 
-type MetokenRegistryFacet_TransferMeTokenOwnership {
+type MeTokenRegistryFacet_TransferMeTokenOwnership {
   id: ID!
   from: String!
   to: String!
   meToken: String!
 }
 
-type MetokenRegistryFacet_UpdateBalanceLocked {
+type MeTokenRegistryFacet_UpdateBalanceLocked {
   id: ID!
   add: Boolean!
   meToken: String!
   amount: BigInt!
 }
 
-type MetokenRegistryFacet_UpdateBalances {
+type MeTokenRegistryFacet_UpdateBalances {
   id: ID!
   meToken: String!
   newBalance: BigInt!
