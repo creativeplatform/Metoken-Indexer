@@ -2,8 +2,6 @@
  * Please refer to https://docs.envio.dev for a thorough guide on all Envio indexer features
  */
 import {
-  Metoken,
-  Metoken_Transfer,
   Metokens,
   Metokens_Burn,
   Metokens_CancelResubscribe,
@@ -28,17 +26,6 @@ import {
   Metokens_UpdateBalancePooled,
   Metokens_UpdateBalances,
 } from "generated";
-
-Metoken.Transfer.handler(async ({ event, context }) => {
-  const entity: Metoken_Transfer = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
-    from: event.params.from,
-    to: event.params.to,
-    value: event.params.value,
-  };
-
-  context.Metoken_Transfer.set(entity);
-});
 
 Metokens.Burn.handler(async ({ event, context }) => {
   const entity: Metokens_Burn = {
