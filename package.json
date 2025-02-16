@@ -1,5 +1,5 @@
 {
-  "name": "envio-indexer",
+  "name": "metokens-indexer",
   "version": "0.1.1",
   "scripts": {
     "clean": "tsc --clean",
@@ -22,7 +22,7 @@
     "mocha": "10.2.0"
   },
   "dependencies": {
-    "envio": "2.9.1"
+    "envio": "2.12.4"
   },
   "optionalDependencies": {
     "generated": "./generated"
