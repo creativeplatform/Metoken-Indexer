@@ -37,4 +37,5 @@ networks:
     contracts:
       - name: Metokens
         address: 0xdD830E2cdC4023d1744232a403Cf2F6c84e898D1
+unordered_multichain_mode: true
 rollback_on_reorg: false
