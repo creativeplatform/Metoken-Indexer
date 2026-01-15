@@ -22,9 +22,14 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
-    "envio": "2.24.0"
+    "envio": "2.32.3"
   },
   "optionalDependencies": {
     "generated": "./generated"
+  },
+  "pnpm": {
+    "overrides": {
+      "glob": "^10.0.0"
+    }
   }
 }
